@@ -11,7 +11,9 @@ import {
   Calendar,
   Users,
   Activity,
-  CheckCircle
+  CheckCircle,
+  Sparkles,
+  Zap
 } from 'lucide-react';
 import { mockData } from '../mock';
 import CouplingGraph from './CouplingGraph';
@@ -20,148 +22,203 @@ const Dashboard = () => {
   const { yesterdayStats, currentStats } = mockData;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-gray-100 p-6">
-      <div className="max-w-7xl mx-auto space-y-8">
-        {/* Header */}
-        <div className="text-center space-y-2">
-          <h1 className="text-4xl font-bold text-gray-900 tracking-tight">
-            Impact Analysis Dashboard
-          </h1>
-          <p className="text-lg text-gray-600">
-            Comprehensive codebase insights and metrics
-          </p>
-        </div>
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-gray-50 to-indigo-50 relative overflow-hidden">
+      {/* Enhanced Animated Background */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-indigo-400/20 to-cyan-400/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/3 right-1/4 w-60 h-60 bg-gradient-to-br from-purple-300/15 to-pink-300/15 rounded-full blur-2xl animate-pulse delay-2000"></div>
+        
+        {/* Floating Elements */}
+        <div className="absolute top-20 left-20 w-2 h-2 bg-blue-400 rounded-full animate-bounce delay-300"></div>
+        <div className="absolute top-40 right-40 w-3 h-3 bg-purple-400 rounded-full animate-bounce delay-700"></div>
+        <div className="absolute bottom-40 left-1/3 w-2 h-2 bg-indigo-400 rounded-full animate-bounce delay-1000"></div>
+      </div>
 
-        {/* Yesterday Statistics Section */}
-        <div className="space-y-6">
-          <div className="flex items-center gap-3">
-            <Calendar className="h-6 w-6 text-blue-600" />
-            <h2 className="text-2xl font-semibold text-gray-800">Yesterday's Statistics</h2>
+      <div className="relative z-10 p-6">
+        <div className="max-w-7xl mx-auto space-y-8">
+          {/* Enhanced Header */}
+          <div className="text-center space-y-4">
+            <div className="flex items-center justify-center space-x-3 mb-4">
+              <div className="relative">
+                <Sparkles className="h-8 w-8 text-indigo-600 animate-pulse" />
+                <div className="absolute -top-1 -right-1 w-3 h-3 bg-yellow-400 rounded-full animate-ping"></div>
+              </div>
+              <h1 className="text-5xl font-bold bg-gradient-to-r from-gray-900 via-indigo-800 to-purple-800 bg-clip-text text-transparent tracking-tight">
+                Impact Analysis Dashboard
+              </h1>
+              <div className="relative">
+                <Zap className="h-8 w-8 text-yellow-500 animate-pulse delay-500" />
+                <div className="absolute -top-1 -right-1 w-3 h-3 bg-indigo-400 rounded-full animate-ping delay-300"></div>
+              </div>
+            </div>
+            <p className="text-xl text-gray-600 font-medium">
+              Comprehensive codebase insights and real-time metrics
+            </p>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Total MRs Card */}
-            <Card className="hover:shadow-lg transition-shadow duration-300 border-0 shadow-md">
-              <CardHeader className="pb-3">
-                <div className="flex items-center justify-between">
-                  <CardTitle className="text-lg font-medium text-gray-700">
-                    Merge Requests
-                  </CardTitle>
-                  <GitPullRequest className="h-5 w-5 text-blue-600" />
-                </div>
-                <CardDescription>Total MRs merged yesterday</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="text-3xl font-bold text-blue-600 mb-4">
-                  {yesterdayStats.totalMRs}
-                </div>
-                <div className="space-y-2">
-                  <div className="text-sm text-gray-600">Recent MRs:</div>
-                  {yesterdayStats.mrDetails.slice(0, 3).map((mr) => (
-                    <div key={mr.id} className="flex items-center justify-between text-sm">
-                      <span className="truncate pr-2">{mr.title}</span>
-                      <Badge variant="secondary" className="shrink-0">
-                        {mr.coverage}%
-                      </Badge>
+
+          {/* Yesterday Statistics Section */}
+          <div className="space-y-6">
+            <div className="flex items-center gap-3">
+              <div className="relative">
+                <Calendar className="h-7 w-7 text-blue-600" />
+                <div className="absolute -top-1 -right-1 w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
+              </div>
+              <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+                Yesterday's Statistics
+              </h2>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* Total MRs Card - Enhanced */}
+              <Card className="hover:shadow-2xl hover:scale-105 transition-all duration-500 border-0 shadow-lg bg-white/90 backdrop-blur-sm group overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-indigo-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <CardHeader className="pb-3 relative z-10">
+                  <div className="flex items-center justify-between">
+                    <CardTitle className="text-xl font-semibold text-gray-700 group-hover:text-blue-700 transition-colors">
+                      Merge Requests
+                    </CardTitle>
+                    <div className="relative">
+                      <GitPullRequest className="h-6 w-6 text-blue-600 group-hover:scale-110 transition-transform duration-300" />
+                      <div className="absolute -top-1 -right-1 w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
                     </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Yesterday's Unit Test Coverage */}
-            <Card className="hover:shadow-lg transition-shadow duration-300 border-0 shadow-md">
-              <CardHeader className="pb-3">
-                <div className="flex items-center justify-between">
-                  <CardTitle className="text-lg font-medium text-gray-700">
-                    Unit Test Coverage
-                  </CardTitle>
-                  <TestTube className="h-5 w-5 text-orange-600" />
-                </div>
-                <CardDescription>Average coverage for yesterday's MRs</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="text-3xl font-bold text-orange-600 mb-4">
-                  {yesterdayStats.unitTestCoverage}%
-                </div>
-                <Progress value={yesterdayStats.unitTestCoverage} className="mb-4" />
-                <div className="flex items-center gap-2 text-sm text-gray-600">
-                  <TrendingUp className="h-4 w-4" />
-                  <span>+5.2% from previous day</span>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-
-        <Separator />
-
-        {/* Current Statistics Section */}
-        <div className="space-y-6">
-          <div className="flex items-center gap-3">
-            <Activity className="h-6 w-6 text-green-600" />
-            <h2 className="text-2xl font-semibold text-gray-800">Current Project Statistics</h2>
-          </div>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {/* Coupling Graph */}
-            <Card className="lg:col-span-2 hover:shadow-lg transition-shadow duration-300 border-0 shadow-md">
-              <CardHeader>
-                <div className="flex items-center justify-between">
-                  <CardTitle className="text-lg font-medium text-gray-700">
-                    Coupling Graph
-                  </CardTitle>
-                  <Network className="h-5 w-5 text-purple-600" />
-                </div>
-                <CardDescription>Component dependencies and relationships</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <CouplingGraph data={currentStats.couplingData} />
-              </CardContent>
-            </Card>
-
-            {/* Overall Unit Test Coverage */}
-            <Card className="hover:shadow-lg transition-shadow duration-300 border-0 shadow-md">
-              <CardHeader className="pb-3">
-                <div className="flex items-center justify-between">
-                  <CardTitle className="text-lg font-medium text-gray-700">
-                    Project Coverage
-                  </CardTitle>
-                  <CheckCircle className="h-5 w-5 text-green-600" />
-                </div>
-                <CardDescription>Overall unit test coverage</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="text-3xl font-bold text-green-600 mb-4">
-                  {currentStats.overallCoverage}%
-                </div>
-                <Progress 
-                  value={currentStats.overallCoverage} 
-                  className="mb-4"
-                  style={{
-                    '--progress-background': 'rgb(34 197 94)',
-                  }}
-                />
-                
-                <div className="space-y-3">
-                  <div className="text-sm font-medium text-gray-700 mb-2">Breakdown:</div>
-                  {Object.entries(currentStats.coverageBreakdown).map(([key, value]) => (
-                    <div key={key} className="flex items-center justify-between">
-                      <span className="text-sm text-gray-600 capitalize">{key}</span>
-                      <div className="flex items-center gap-2">
-                        <div className="w-16 h-2 bg-gray-200 rounded-full overflow-hidden">
-                          <div 
-                            className="h-full bg-green-500 transition-all duration-500"
-                            style={{ width: `${value}%` }}
-                          />
-                        </div>
-                        <span className="text-sm font-medium text-green-600">{value}%</span>
+                  </div>
+                  <CardDescription className="text-gray-600">Total MRs merged yesterday</CardDescription>
+                </CardHeader>
+                <CardContent className="relative z-10">
+                  <div className="text-4xl font-bold text-blue-600 mb-6 group-hover:scale-110 transition-transform duration-300">
+                    {yesterdayStats.totalMRs}
+                  </div>
+                  <div className="space-y-3">
+                    <div className="text-sm font-medium text-gray-600 mb-3">Recent MRs:</div>
+                    {yesterdayStats.mrDetails.slice(0, 3).map((mr) => (
+                      <div key={mr.id} className="flex items-center justify-between text-sm p-2 bg-white/60 rounded-lg hover:bg-white/80 transition-colors">
+                        <span className="truncate pr-2 font-medium">{mr.title}</span>
+                        <Badge variant="secondary" className="shrink-0 font-bold">
+                          {mr.coverage}%
+                        </Badge>
                       </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Yesterday's Unit Test Coverage - Enhanced */}
+              <Card className="hover:shadow-2xl hover:scale-105 transition-all duration-500 border-0 shadow-lg bg-white/90 backdrop-blur-sm group overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-orange-50/50 to-red-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <CardHeader className="pb-3 relative z-10">
+                  <div className="flex items-center justify-between">
+                    <CardTitle className="text-xl font-semibold text-gray-700 group-hover:text-orange-700 transition-colors">
+                      Unit Test Coverage
+                    </CardTitle>
+                    <div className="relative">
+                      <TestTube className="h-6 w-6 text-orange-600 group-hover:scale-110 transition-transform duration-300" />
+                      <div className="absolute -top-1 -right-1 w-2 h-2 bg-orange-400 rounded-full animate-pulse"></div>
                     </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+                  </div>
+                  <CardDescription className="text-gray-600">Average coverage for yesterday's MRs</CardDescription>
+                </CardHeader>
+                <CardContent className="relative z-10">
+                  <div className="text-4xl font-bold text-orange-600 mb-6 group-hover:scale-110 transition-transform duration-300">
+                    {yesterdayStats.unitTestCoverage}%
+                  </div>
+                  <Progress value={yesterdayStats.unitTestCoverage} className="mb-6 h-3 group-hover:h-4 transition-all duration-300" />
+                  <div className="flex items-center gap-3 text-sm">
+                    <TrendingUp className="h-5 w-5 text-green-600 animate-bounce" />
+                    <span className="text-green-600 font-semibold">+5.2% from previous day</span>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+
+          <Separator className="my-8 bg-gradient-to-r from-transparent via-gray-300 to-transparent" />
+
+          {/* Current Statistics Section - Enhanced */}
+          <div className="space-y-6">
+            <div className="flex items-center gap-3">
+              <div className="relative">
+                <Activity className="h-7 w-7 text-green-600" />
+                <div className="absolute -top-1 -right-1 w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+              </div>
+              <h2 className="text-3xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
+                Current Project Statistics
+              </h2>
+            </div>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+              {/* Coupling Graph - Enhanced */}
+              <Card className="lg:col-span-2 hover:shadow-2xl hover:scale-[1.02] transition-all duration-500 border-0 shadow-lg bg-white/90 backdrop-blur-sm group overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-50/30 to-indigo-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <CardHeader className="relative z-10">
+                  <div className="flex items-center justify-between">
+                    <CardTitle className="text-xl font-semibold text-gray-700 group-hover:text-purple-700 transition-colors">
+                      Coupling Graph
+                    </CardTitle>
+                    <div className="relative">
+                      <Network className="h-6 w-6 text-purple-600 group-hover:scale-110 group-hover:rotate-12 transition-transform duration-300" />
+                      <div className="absolute -top-1 -right-1 w-2 h-2 bg-purple-400 rounded-full animate-pulse"></div>
+                    </div>
+                  </div>
+                  <CardDescription className="text-gray-600">Component dependencies and relationships</CardDescription>
+                </CardHeader>
+                <CardContent className="relative z-10">
+                  <CouplingGraph data={currentStats.couplingData} />
+                </CardContent>
+              </Card>
+
+              {/* Overall Unit Test Coverage - Enhanced */}
+              <Card className="hover:shadow-2xl hover:scale-105 transition-all duration-500 border-0 shadow-lg bg-white/90 backdrop-blur-sm group overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-green-50/50 to-emerald-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <CardHeader className="pb-3 relative z-10">
+                  <div className="flex items-center justify-between">
+                    <CardTitle className="text-xl font-semibold text-gray-700 group-hover:text-green-700 transition-colors">
+                      Project Coverage
+                    </CardTitle>
+                    <div className="relative">
+                      <CheckCircle className="h-6 w-6 text-green-600 group-hover:scale-110 transition-transform duration-300" />
+                      <div className="absolute -top-1 -right-1 w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                    </div>
+                  </div>
+                  <CardDescription className="text-gray-600">Overall unit test coverage</CardDescription>
+                </CardHeader>
+                <CardContent className="relative z-10">
+                  <div className="text-4xl font-bold text-green-600 mb-6 group-hover:scale-110 transition-transform duration-300">
+                    {currentStats.overallCoverage}%
+                  </div>
+                  <Progress 
+                    value={currentStats.overallCoverage} 
+                    className="mb-6 h-3 group-hover:h-4 transition-all duration-300"
+                  />
+                  
+                  <div className="space-y-4">
+                    <div className="text-sm font-semibold text-gray-700 mb-3 flex items-center gap-2">
+                      <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                      Breakdown:
+                    </div>
+                    {Object.entries(currentStats.coverageBreakdown).map(([key, value]) => (
+                      <div key={key} className="flex items-center justify-between p-2 bg-green-50/60 rounded-lg hover:bg-green-50 transition-colors">
+                        <span className="text-sm text-gray-700 capitalize font-medium">{key}</span>
+                        <div className="flex items-center gap-3">
+                          <div className="w-20 h-2 bg-gray-200 rounded-full overflow-hidden">
+                            <div 
+                              className="h-full bg-gradient-to-r from-green-400 to-green-600 transition-all duration-1000 ease-out"
+                              style={{ width: `${value}%` }}
+                            />
+                          </div>
+                          <span className="text-sm font-bold text-green-600 w-12 text-right">{value}%</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+
+          {/* Pulse Effect for Bottom */}
+          <div className="flex justify-center pt-8">
+            <div className="w-32 h-1 bg-gradient-to-r from-transparent via-indigo-400 to-transparent animate-pulse"></div>
           </div>
         </div>
       </div>

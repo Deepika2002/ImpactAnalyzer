@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import axios from "axios";
 import Dashboard from "./components/Dashboard";
 import DevPage from "./components/DevPage";
+import TestersPage from "./components/TestersPage";
 import Navigation from "./components/Navigation";
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
@@ -26,7 +27,7 @@ const Layout = ({ children }) => {
   return (
     <div className="min-h-screen bg-gray-50">
       <Navigation />
-      <main>{children}</main>
+      <main className="transition-all duration-300 ease-in-out">{children}</main>
     </div>
   );
 };
@@ -39,7 +40,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/dev" element={<DevPage />} />
-            <Route path="/testers" element={<div className="p-8 text-center text-gray-500">Testers page coming soon...</div>} />
+            <Route path="/testers" element={<TestersPage />} />
           </Routes>
         </Layout>
       </BrowserRouter>
