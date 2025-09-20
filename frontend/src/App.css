@@ -32,3 +32,48 @@
         transform: rotate(360deg);
     }
 }
+
+/* Custom styles for progress bars with green theme */
+[data-progress-root] {
+    position: relative;
+    overflow: hidden;
+    background: #e5e7eb;
+    border-radius: 9999px;
+    width: 100%;
+    height: 8px;
+}
+
+[data-progress-indicator] {
+    background: linear-gradient(90deg, #22c55e, #16a34a);
+    width: 100%;
+    height: 100%;
+    transition: all 0.5s ease-in-out;
+    border-radius: 9999px;
+}
+
+/* Smooth transitions for all interactive elements */
+.transition-all {
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+}
+
+/* Custom hover effects */
+.hover\:shadow-lg:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Gradient animations */
+@keyframes gradient-shift {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+.animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient-shift 6s ease infinite;
+}
