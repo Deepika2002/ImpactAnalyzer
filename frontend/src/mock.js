@@ -141,5 +141,92 @@ export const mockData = {
         { date: "2024-09-20", coverage: 82.7 }
       ]
     }
+  },
+
+  // Testers page data
+  testersStats: {
+    regressionSummary: {
+      totalFlows: 24,
+      passed: 18,
+      failed: 6,
+      needRetesting: 8,
+      impactedByYesterday: 12
+    },
+    
+    testCalendarData: {
+      "2024-09-20": {
+        totalTests: 24,
+        passed: 18,
+        failed: 6,
+        pending: 0,
+        flows: [
+          { id: "auth-regression", name: "Auth Regression Suite", status: "passed", duration: "5.2s", priority: "high", impacted: true },
+          { id: "payment-regression", name: "Payment Regression", status: "failed", duration: "8.1s", priority: "critical", impacted: true },
+          { id: "user-flows", name: "User Flow Tests", status: "passed", duration: "3.4s", priority: "medium", impacted: false },
+          { id: "api-tests", name: "API Integration Suite", status: "failed", duration: "6.7s", priority: "high", impacted: true },
+          { id: "ui-regression", name: "UI Component Tests", status: "passed", duration: "4.1s", priority: "low", impacted: false },
+          { id: "database-tests", name: "Database Integrity", status: "passed", duration: "2.8s", priority: "medium", impacted: true }
+        ]
+      },
+      "2024-09-19": {
+        totalTests: 22,
+        passed: 16,
+        failed: 4,
+        pending: 2,
+        flows: [
+          { id: "auth-regression", name: "Auth Regression Suite", status: "passed", duration: "4.8s", priority: "high", impacted: false },
+          { id: "payment-regression", name: "Payment Regression", status: "passed", duration: "7.2s", priority: "critical", impacted: false },
+          { id: "user-flows", name: "User Flow Tests", status: "failed", duration: "3.9s", priority: "medium", impacted: false },
+          { id: "api-tests", name: "API Integration Suite", status: "pending", duration: "-", priority: "high", impacted: false }
+        ]
+      }
+    },
+
+    recommendedTests: [
+      {
+        id: "auth-impact-test",
+        name: "Authentication Impact Testing",
+        reason: "Yesterday's auth bug fix affects login flows",
+        priority: "critical",
+        estimatedTime: "45min",
+        components: ["Auth Service", "Session Management"],
+        developerChanges: 3
+      },
+      {
+        id: "payment-regression",
+        name: "Payment Module Regression",
+        reason: "Payment module had high impact changes",
+        priority: "high",
+        estimatedTime: "1.2h",
+        components: ["Payment Service", "API Layer"],
+        developerChanges: 2
+      },
+      {
+        id: "ui-component-check",
+        name: "UI Component Validation",
+        reason: "Low risk but multiple UI components modified",
+        priority: "medium",
+        estimatedTime: "30min",
+        components: ["UI Components", "Frontend"],
+        developerChanges: 4
+      }
+    ],
+
+    developerRegressions: {
+      "John Doe": { passed: 8, failed: 2, total: 10 },
+      "Jane Smith": { passed: 6, failed: 1, total: 7 },
+      "Mike Johnson": { passed: 4, failed: 0, total: 4 },
+      "Sarah Wilson": { passed: 2, failed: 2, total: 4 },
+      "Alex Chen": { passed: 3, failed: 1, total: 4 }
+    },
+
+    testTrends: [
+      { date: "2024-09-15", passed: 20, failed: 4 },
+      { date: "2024-09-16", passed: 18, failed: 6 },
+      { date: "2024-09-17", passed: 22, failed: 2 },
+      { date: "2024-09-18", passed: 19, failed: 5 },
+      { date: "2024-09-19", passed: 16, failed: 4 },
+      { date: "2024-09-20", passed: 18, failed: 6 }
+    ]
   }
 };
