@@ -21,7 +21,6 @@ import {
   PlayCircle
 } from 'lucide-react';
 import { mockData } from '../mock';
-import TestCalendarView from './TestCalendarView';
 import RegressionRecommendations from './RegressionRecommendations';
 import DeveloperRegressionChart from './DeveloperRegressionChart';
 
